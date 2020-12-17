@@ -3,9 +3,13 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1> Setup Github</h1>
-      <h2>Hello world!</h2>
+    <div class="bg-red-700 w-900">
+      <div class="bg-white-400 w-32">
+        <h1 class="font-serif">
+          Hello World!
+        </h1>
+        <button class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" type="submit">Buy now</button>
+      </div>
     </div>
   );
 }
