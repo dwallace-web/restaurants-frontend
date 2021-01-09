@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 
 export class SignUp extends Component {
+  constructor() {
+    super();
+    this.state = {
+      email: null,
+      password: null,
+      login: false,
+      store: null,
+    };
+  }
   render() {
-    return (
-      <div>
-        <h1>Sign Up </h1>
-      </div>
-    );
+    return <div> Sign Up </div>;
   }
 }
 

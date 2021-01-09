@@ -1,21 +1,34 @@
 import React from 'react';
-import './App.css';
+import { useState, useEffect } from 'react';
+// import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Body from './components/Body/body';
+import './App.css';
 import SignUp from './components/login/SignUp';
 import SignIn from './components/login/SignIn';
-import Comment from './components/comment/commentdisplay';
+
+import CustomerBody from './components/body/customerBody';
+import OwnerBody from './components/body/ownerBody';
 
 function App() {
-  return (
-    <div className="App">
-      <h1 className="font-mono">Hello World</h1>
-      <Body />
-      <SignIn />
-      <SignUp />
-      <Comment />
-    </div>
-  );
+  const [token, settoken] = useState('');
+  const [businessOwner, setBusinessOwner] = useState(false);
+  const [userId, setUserId] = useState('');
+
+  const userFlow = () => {
+    return token === localStorage.getItem('restauranttoken') ? (
+      <div className="">
+        <CustomerBody />
+        <OwnerBody />
+      </div>
+    ) : (
+      <div className="">
+        <SignIn />
+        <SignUp />
+      </div>
+    );
+  };
+  //Login and Tokenizations
+  return <div className="App">{userFlow()}</div>;
 }
 
 export default App;
