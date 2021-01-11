@@ -1,20 +1,29 @@
 import React from 'react';
-// import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import './App.css';
-import SignUp from './components/login/SignUp';
 import SignIn from './components/login/SignIn';
+import SignUp from './components/login/SignUp';
+
+//Login and tokenizations
 
 function App() {
   const userFlow = () => {
     return (
-      <div className="">
-        <SignIn />
-        <SignUp />
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/signin" component={SignIn} />
+          {/* <Route exat path="" components= /> 
+        <Route exat path="" components= /> 
+        <Route exat path="" components= /> 
+        <Route exat path="" components= /> 
+        */}
+        </Switch>
+      </Router>
     );
   };
-  //Login and Tokenizations
+
   return <div className="App">{userFlow()}</div>;
 }
 
